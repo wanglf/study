@@ -1,0 +1,17 @@
+* Study
+
+This repo store articles or papers collected from Internet, especially [[http://research.google.com][Research at Google]].
+
+* Log
+
+- [2016-05-29]: Availability in Globally Distributed Storage Systems
+- [2016-05-29]: Efficient Topologies for Large-scale Cluster Networks
+- [2016-05-29]: High-Availability at Massive Scale- Building Google\342\200\231s Data Infrastructure for Ads.
+- [2016-05-29]: Large-scale cluster management at Google with Borg
+- [2016-05-29]: LatLong-Diagnosing Wide-Area Latency Changes for CDNs
+- [2016-05-29]: Mesa-Geo-Replicated, Near Real-Time, Scalable Data Warehousing
+- [2016-05-29]: WEBSEARCH FOR A PLANET- THE GOOGLECLUSTER ARCHITECTURE
+- [2016-05-18]: networking - A Guided Tour of Data-Center Networking
+- [2016-05-18]: networking - B4: Experience with a Globally-Deployed Software Defined WAN
+- [2016-05-18]: networking - Maglev: A Fast and Reliable Software Network Load Balancer
+- [2016-05-18]: networking - Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network
