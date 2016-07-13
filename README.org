@@ -4,11 +4,12 @@ This repo store articles or papers collected from Internet, especially [[http://
 
 * Log
 
+- [2016-07-13]: The Rise of Cloud Computing Systems
 - [2016-07-13]: Sequoia Routing Protocol by Tencent Network Lab
 - [2016-07-13]: Why Google Store Billions of Lines of Code in a Single Repository
 - [2016-05-29]: Availability in Globally Distributed Storage Systems
 - [2016-05-29]: Efficient Topologies for Large-scale Cluster Networks
-- [2016-05-29]: High-Availability at Massive Scale- Building Google\342\200\231s Data Infrastructure for Ads.
+- [2016-05-29]: High-Availability at Massive Scale-Building Google's Data Infrastructure for Ads
 - [2016-05-29]: Large-scale cluster management at Google with Borg
 - [2016-05-29]: LatLong-Diagnosing Wide-Area Latency Changes for CDNs
 - [2016-05-29]: Mesa-Geo-Replicated, Near Real-Time, Scalable Data Warehousing
