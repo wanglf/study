@@ -4,6 +4,7 @@ This repo store articles or papers collected from Internet, especially [[http://
 
 * Log
 
+- [2016-08-11]: Add my readinglist in ReadingList.org
 - [2016-08-10]: Dapper - a Large-Scale Distributed Systems Tracing Infrastructure
 - [2016-07-13]: The Rise of Cloud Computing Systems
 - [2016-07-13]: Sequoia Routing Protocol by Tencent Network Lab
