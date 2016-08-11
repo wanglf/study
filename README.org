@@ -1,25 +1,29 @@
 * Study
 
-This repo contain following:
+This repo contain following subrepos:
 
-- articles or papers collected from Internet, especially [[http://research.google.com][Research at Google]].
-- my [[https://github.com/wanglf/study/tree/master/ReadingList][readinglist]]
+- [[https://github.com/wanglf/study/tree/master/GoogleResearch][GoogleResearch]]
+- [[https://github.com/wanglf/study/tree/master/ReadingList][ReadingList]]
+- [[https://github.com/wanglf/study/tree/master/Workflow][Workflow]]
+- [[https://github.com/wanglf/study/tree/master/Misc][Misc]]
 
 * Log
 
-- [2016-08-11]: Add my readinglist in ReadingList.org
-- [2016-08-10]: Dapper - a Large-Scale Distributed Systems Tracing Infrastructure
-- [2016-07-13]: The Rise of Cloud Computing Systems
-- [2016-07-13]: Sequoia Routing Protocol by Tencent Network Lab
-- [2016-07-13]: Why Google Store Billions of Lines of Code in a Single Repository
-- [2016-05-29]: Availability in Globally Distributed Storage Systems
-- [2016-05-29]: Efficient Topologies for Large-scale Cluster Networks
-- [2016-05-29]: High-Availability at Massive Scale-Building Google's Data Infrastructure for Ads
-- [2016-05-29]: Large-scale cluster management at Google with Borg
-- [2016-05-29]: LatLong-Diagnosing Wide-Area Latency Changes for CDNs
-- [2016-05-29]: Mesa-Geo-Replicated, Near Real-Time, Scalable Data Warehousing
-- [2016-05-29]: WEBSEARCH FOR A PLANET- THE GOOGLECLUSTER ARCHITECTURE
-- [2016-05-18]: networking - A Guided Tour of Data-Center Networking
-- [2016-05-18]: networking - B4: Experience with a Globally-Deployed Software Defined WAN
-- [2016-05-18]: networking - Maglev: A Fast and Reliable Software Network Load Balancer
-- [2016-05-18]: networking - Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network
+- [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
+- [2016-08-11]: Workflow: new and add README.org
+- [2016-08-11]: ReadingList: new and add README.org
+- [2016-08-10]: GoogleResearch: Dapper - a Large-Scale Distributed Systems Tracing Infrastructure
+- [2016-07-13]: GoogleResearch: The Rise of Cloud Computing Systems
+- [2016-07-13]: Misc: Sequoia Routing Protocol by Tencent Network Lab
+- [2016-07-13]: GoogleResearch: Why Google Store Billions of Lines of Code in a Single Repository
+- [2016-05-29]: GoogleResearch: Availability in Globally Distributed Storage Systems
+- [2016-05-29]: GoogleResearch: Efficient Topologies for Large-scale Cluster Networks
+- [2016-05-29]: GoogleResearch: High-Availability at Massive Scale-Building Google's Data Infrastructure for Ads
+- [2016-05-29]: GoogleResearch: Large-scale cluster management at Google with Borg
+- [2016-05-29]: GoogleResearch: LatLong-Diagnosing Wide-Area Latency Changes for CDNs
+- [2016-05-29]: GoogleResearch: Mesa-Geo-Replicated, Near Real-Time, Scalable Data Warehousing
+- [2016-05-29]: GoogleResearch: WEBSEARCH FOR A PLANET- THE GOOGLECLUSTER ARCHITECTURE
+- [2016-05-18]: GoogleResearch: A Guided Tour of Data-Center Networking
+- [2016-05-18]: GoogleResearch: B4: Experience with a Globally-Deployed Software Defined WAN
+- [2016-05-18]: GoogleResearch: Maglev: A Fast and Reliable Software Network Load Balancer
+- [2016-05-18]: GoogleResearch: Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network

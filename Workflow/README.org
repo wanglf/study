@@ -1,0 +1,3 @@
+** Files
+
+- An Effective Git And Org-Mode Based Workflow For Reproducible Research
