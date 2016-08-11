@@ -8,25 +8,35 @@
 
 ** 索引
 
-- [[%E6%96%87%E5%AD%A6][文学]]
-- [[传记][传记]]
-- [[历史][历史]]
-- [[科学][科学]]
-- [[%E6%8A%80%E6%9C%AF][技术]]
+- [[#%E6%96%87%E5%AD%A6][文学]]
+- [[#%E4%BC%A0%E8%AE%B0][传记]]
+- [[#%E5%8E%86%E5%8F%B2][历史]]
+- [[#%E7%A7%91%E5%AD%A6][科学]]
+- [[#%E6%8A%80%E6%9C%AF][技术]]
 
 ** 文学
-<<文学>>
+:PROPERTIES:
+:CUSTOM_ID: 文学
+:END:
 
 ** 传记
-<<传记>>
+:PROPERTIES:
+:CUSTOM_ID: 传记
+:END:
 
 ** 历史
-<<历史>>
+:PROPERTIES:
+:CUSTOM_ID: 历史
+:END:
 
 ** 科学
-<<科学>>
+:PROPERTIES:
+:CUSTOM_ID: 科学
+:END:
 
 ** 技术
-<<技术>>
+:PROPERTIES:
+:CUSTOM_ID: 技术
+:END:
 
 - :+1: [[https://book.douban.com/subject/26295827/][Ansible: Up and Running]]
