@@ -1,6 +1,9 @@
 * Study
 
-This repo store articles or papers collected from Internet, especially [[http://research.google.com][Research at Google]].
+This repo contain following:
+
+- articles or papers collected from Internet, especially [[http://research.google.com][Research at Google]].
+- my readinglist
 
 * Log
 
