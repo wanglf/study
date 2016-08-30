@@ -1,0 +1,70 @@
+#+TITLE: GnuPG Notes
+#+AUTHOR: wanglifeng
+
+* Install
+#+BEGIN_SRC sh
+# Ubuntu
+sudo apt-get install gnupg
+# Centos
+yum install gnupg
+gpg --help
+#+END_SRC
+
+* Generate key
+#+BEGIN_SRC sh
+gpg --gen-key
+# could take tens of minutes
+# IMPORTANT: Remember passphase
+gpg --gen-revoke
+# backup the revoke certificate
+gpg --list-keys
+
+gpg --delete -key
+#+END_SRC
+
+* Send Key to Server
+#+BEGIN_SRC sh
+gpg --keyserver keys.gnupg.net --send-keys [userId]
+gpg --key-server keys.gnupg.net --search-key your@email.address
+gpg --fingerprint [userId]
+#+END_SRC
+
+* Export private key
+#+BEGIN_SRC sh
+gpg --export-secret-keys > secret.key
+# IMPORTANT: backup private key
+#+END_SRC
+
+* Import private key on other machine
+#+BEGIN_SRC sh
+gpg --import secret.key
+gpg --keyserver keys.gnupg.net --search-keys [userID]
+#+END_SRC
+
+* Encrypt
+#+BEGIN_SRC sh
+gpg --encryt filename
+# encrypted file: filename.gpg
+#+END_SRC
+
+* Decrypt
+#+BEGIN_SRC sh
+gpg --decrypt filename
+gpg filename.gpg
+#+END_SRC
+
+* Emacs Integration
+EasyPG is an all-in-one GnuPG interface for Emacs. It has two aspects: convenient tools which allow to use GnuPG from Emacs (EasyPG Assistant), and a fully functional interface library to GnuPG (EasyPG Library).
+
+Easy PG is built in now. File with suffix .gpg will be automatically encrypted.
+
+To prevent EPG from prompting for a key every time you save a file, put the following at the top of your file:
+
+#+BEGIN_EXAMPLE
+-*- epa-file-encrypt-to: ("your@email.address") -*-
+#+END_EXAMPLE
+
+To mark a key, use following emacs command.
+#+BEGIN_EXAMPLE
+M-x epa-mark-key
+#+END_EXAMPLE
