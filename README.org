@@ -1,16 +1,16 @@
 * Study
-
 This repo contain following subrepos:
 
 - [[https://github.com/wanglf/study/tree/master/GoogleResearch][GoogleResearch]]
 - [[https://github.com/wanglf/study/tree/master/ReadingList][ReadingList]]
 - [[https://github.com/wanglf/study/tree/master/Workflow][Workflow]]
 - [[https://github.com/wanglf/study/tree/master/Misc][Misc]]
+- [[https://github.com/wanglf/study/tree/master/Note][Note]]
 
 * Log
 
-- [2016-08-30]: Note.tools.gnuplot: An gnuplot example to record my getting up time
-- [2016-08-30]: Note.tools.emacs: GnuPG usage guide
+- [2016-08-30]: Note.tools.gnuplot: An interesting example of using gnuplot to record my getting up time [[https://github.com/wanglf/study/blob/master/Note/tools/gnuplot/getup.org][link]]
+- [2016-08-30]: Note.tools.emacs: GnuPG usage guide [[https://github.com/wanglf/study/blob/master/Note/tools/emacs/gpg.org][link]]
 - [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
 - [2016-08-11]: Workflow: new and add README.org
 - [2016-08-11]: ReadingList: new and add README.org
