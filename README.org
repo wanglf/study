@@ -9,6 +9,8 @@ This repo contain following subrepos:
 
 * Log
 
+- [2016-08-30]: Note.tools.gnuplot: An gnuplot example to record my getting up time
+- [2016-08-30]: Note.tools.emacs: GnuPG usage guide
 - [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
 - [2016-08-11]: Workflow: new and add README.org
 - [2016-08-11]: ReadingList: new and add README.org
