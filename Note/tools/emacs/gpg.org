@@ -35,6 +35,10 @@ gpg --export-secret-keys > secret.key
 # IMPORTANT: backup private key
 #+END_SRC
 
+* Export public key
+#+BEGIN_SRC sh
+gpg --armor --output public.key --export your@email.address
+#+END_SRC
 * Import private key on other machine
 #+BEGIN_SRC sh
 gpg --import secret.key
