@@ -1,8 +1,7 @@
 #+AUTHOR: wanglifeng
 #+TITLE: Getting up time table and plot
 * Year2016
-** Q3
-*** Table Y2016Q3
+** Table Y2016Q3
 #+tblname: y2016q3
 |------+------------+------------+---------------+------------+------------+---------------+-----------+-----------+--------------|
 | Date | Sept-Sleep | Sept-Getup | Sept-Duration | July-Sleep | July-Getup | July-Duration | Aug-Sleep | Aug-Getup | Aug-Duration |
@@ -70,7 +69,7 @@
 |   31 |            |            |               |            |            |               |           |           |              |
 |------+------------+------------+---------------+------------+------------+---------------+-----------+-----------+--------------|
 #+TBLFM: $4=$3-$2+24*60*60;T
-*** Plot Y2016Q3
+** Plot Y2016Q3
 #+BEGIN_SRC gnuplot :var y2016q3=y2016q3  :exports both :file img/y2016q3.png
 reset
 set title "Year 2016 Q3"
