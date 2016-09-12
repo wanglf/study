@@ -1,5 +1,5 @@
 * Study
-This repo contain following subrepos:
+This repo contain following topics:
 
 - [[https://github.com/wanglf/study/tree/master/GoogleResearch][GoogleResearch]]
 - [[https://github.com/wanglf/study/tree/master/ReadingList][ReadingList]]
@@ -9,6 +9,7 @@ This repo contain following subrepos:
 
 * Log
 
+- [2016-09-12]: Note.tools.ledger: Command-Line Accounting [[https://github.com/wanglf/study/blob/master/Note/tools/ledger/notes.org][link]]
 - [2016-08-30]: Note.tools.gnuplot: An interesting example of using gnuplot to record my getting up time [[https://github.com/wanglf/study/blob/master/Note/tools/gnuplot/getup.org][link]]
 - [2016-08-30]: Note.tools.emacs: GnuPG usage guide [[https://github.com/wanglf/study/blob/master/Note/tools/emacs/gpg.org][link]]
 - [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
