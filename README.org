@@ -1,23 +1,15 @@
-* Study
+* Contents
 This repo contain following topics:
-
 - [[https://github.com/wanglf/study/tree/master/GoogleResearch][GoogleResearch]]
 - [[https://github.com/wanglf/study/tree/master/ReadingList][ReadingList]]
+- [[https://github.com/wanglf/study/tree/master/Note][Note]]
 - [[https://github.com/wanglf/study/tree/master/Workflow][Workflow]]
 - [[https://github.com/wanglf/study/tree/master/Misc][Misc]]
-- [[https://github.com/wanglf/study/tree/master/Note][Note]]
 
 * Log
-
-- [2016-09-12]: Note.tools.ledger: Command-Line Accounting [[https://github.com/wanglf/study/blob/master/Note/tools/ledger/notes.org][link]]
-- [2016-08-30]: Note.tools.gnuplot: An interesting example of using gnuplot to record my getting up time [[https://github.com/wanglf/study/blob/master/Note/tools/gnuplot/getup.org][link]]
-- [2016-08-30]: Note.tools.emacs: GnuPG usage guide [[https://github.com/wanglf/study/blob/master/Note/tools/emacs/gpg.org][link]]
-- [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
-- [2016-08-11]: Workflow: new and add README.org
-- [2016-08-11]: ReadingList: new and add README.org
+** GoogleResearch
 - [2016-08-10]: GoogleResearch: Dapper - a Large-Scale Distributed Systems Tracing Infrastructure
 - [2016-07-13]: GoogleResearch: The Rise of Cloud Computing Systems
-- [2016-07-13]: Misc: Sequoia Routing Protocol by Tencent Network Lab
 - [2016-07-13]: GoogleResearch: Why Google Store Billions of Lines of Code in a Single Repository
 - [2016-05-29]: GoogleResearch: Availability in Globally Distributed Storage Systems
 - [2016-05-29]: GoogleResearch: Efficient Topologies for Large-scale Cluster Networks
@@ -30,3 +22,18 @@ This repo contain following topics:
 - [2016-05-18]: GoogleResearch: B4: Experience with a Globally-Deployed Software Defined WAN
 - [2016-05-18]: GoogleResearch: Maglev: A Fast and Reliable Software Network Load Balancer
 - [2016-05-18]: GoogleResearch: Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network
+
+** ReadingList
+- [2016-08-11]: ReadingList: new and add README.org
+
+** Note
+- [2016-09-12]: Note.tools.ledger: Command-Line Accounting [[https://github.com/wanglf/study/blob/master/Note/tools/ledger/notes.org][link]]
+- [2016-08-30]: Note.tools.gnuplot: An interesting example of using gnuplot to record my getting up time [[https://github.com/wanglf/study/blob/master/Note/tools/gnuplot/getup.org][link]]
+- [2016-08-30]: Note.tools.emacs: GnuPG usage guide [[https://github.com/wanglf/study/blob/master/Note/tools/emacs/gpg.org][link]]
+
+** Workflow
+- [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
+- [2016-08-11]: Workflow: new and add README.org
+
+** Misc
+- [2016-07-13]: Misc: Sequoia Routing Protocol by Tencent Network Lab
