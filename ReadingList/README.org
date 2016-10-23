@@ -16,7 +16,7 @@
 :END:
 
 -  [[https://book.douban.com/subject/20278799/][三十六大]]
--  :+1: [[https://book.douban.com/subject/20278799/][阿城文集之一: 棋王·树王·孩子王]]
+-  :+1: [[https://book.douban.com/subject/26734559/][阿城文集之一: 棋王·树王·孩子王]]
 
 ** 传记
 :PROPERTIES:
@@ -39,3 +39,4 @@
 :END:
 
 - :+1: [[https://book.douban.com/subject/26295827/][Ansible: Up and Running]]
+- :+1: [[https://book.douban.com/subject/26675256/][Site Reliability Engineering]]
