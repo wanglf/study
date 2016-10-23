@@ -2,7 +2,6 @@
 This repo contain following topics:
 - [[https://github.com/wanglf/study/tree/master/GoogleResearch][GoogleResearch]]
 - [[https://github.com/wanglf/study/tree/master/ReadingList][ReadingList]]
-- [[https://github.com/wanglf/study/tree/master/Note][Note]]
 - [[https://github.com/wanglf/study/tree/master/Workflow][Workflow]]
 - [[https://github.com/wanglf/study/tree/master/Misc][Misc]]
 
@@ -24,12 +23,9 @@ This repo contain following topics:
 - [2016-05-18]: GoogleResearch: Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network
 
 ** ReadingList
+- [2016-10-23]: ReadingList: 《三十六大》
+- [2016-10-23]: ReadingList: 《阿城文集之一: 棋王、树王、孩子王》
 - [2016-08-11]: ReadingList: new and add README.org
-
-** Note
-- [2016-09-12]: Note.tools.ledger: Command-Line Accounting [[https://github.com/wanglf/study/blob/master/Note/tools/ledger/notes.org][link]]
-- [2016-08-30]: Note.tools.gnuplot: An interesting example of using gnuplot to record my getting up time [[https://github.com/wanglf/study/blob/master/Note/tools/gnuplot/getup.org][link]]
-- [2016-08-30]: Note.tools.emacs: GnuPG usage guide [[https://github.com/wanglf/study/blob/master/Note/tools/emacs/gpg.org][link]]
 
 ** Workflow
 - [2016-08-11]: Workflow: An Effective Git And Org-Mode Based Workflow For Reproducible Research
