@@ -33,4 +33,5 @@ This repo contain following topics:
 - [2016-08-11]: Workflow: new and add README.org
 
 ** Misc
+- [2016-10-25]: Misc: When a Chinese PhD Student Meets a German Supervisor
 - [2016-07-13]: Misc: Sequoia Routing Protocol by Tencent Network Lab
