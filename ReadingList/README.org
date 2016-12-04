@@ -9,14 +9,19 @@
 - [[#%E5%8E%86%E5%8F%B2][历史]]
 - [[#%E7%A7%91%E5%AD%A6][科学]]
 - [[#%E6%8A%80%E6%9C%AF][技术]]
+- [[#%E5%85%B6%E5%AE%83][其它]]
 
 ** 文学
 :PROPERTIES:
 :CUSTOM_ID: 文学
 :END:
 
--  [[https://book.douban.com/subject/20278799/][三十六大]]
--  :+1: [[https://book.douban.com/subject/26734559/][阿城文集之一: 棋王·树王·孩子王]]
+*** 小说
+- :+1: [[https://book.douban.com/subject/26734559/][阿城文集之一: 棋王·树王·孩子王]]
+- :+1: [[https://book.douban.com/subject/24257486/][局外人 (法)阿尔贝.加缪]]
+
+*** 随笔
+- [[https://book.douban.com/subject/20278799/][三十六大]]
 
 ** 传记
 :PROPERTIES:
@@ -37,6 +42,17 @@
 :PROPERTIES:
 :CUSTOM_ID: 技术
 :END:
+*** Java
+- [[https://book.douban.com/subject/26418340/][Java虚拟机规范(Java SE 8版)]]
 
+*** SA
 - :+1: [[https://book.douban.com/subject/26295827/][Ansible: Up and Running]]
 - :+1: [[https://book.douban.com/subject/26675256/][Site Reliability Engineering]]
+
+** 其它
+:PROPERTIES:
+:CUSTOM_ID: 其它
+:END:
+
+*** 自我实现
+- [[https://book.douban.com/subject/25749845/][把时间当作朋友 (李笑来)]]

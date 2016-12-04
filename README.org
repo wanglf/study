@@ -23,6 +23,9 @@ This repo contain following topics:
 - [2016-05-18]: GoogleResearch: Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network
 
 ** ReadingList
+- [2016-12-04]: ReadingList: 局外人
+- [2016-12-04]: ReadingList: 把时间当作朋友
+- [2016-12-04]: ReadingList: Java虚拟机规范(Java SE 8版)
 - [2016-10-23]: ReadingList: Site Reliability Engineering
 - [2016-10-23]: ReadingList: 三十六大
 - [2016-10-23]: ReadingList: 阿城文集之一: 棋王、树王、孩子王
