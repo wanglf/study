@@ -7,7 +7,9 @@ This repo contain following topics:
 
 * Log
 ** GoogleResearch
-- [2016-08-10]: GoogleResearch: Dapper - a Large-Scale Distributed Systems Tracing Infrastructure
+- [2016-12-08]: GoogleResearch: Jeff Dean: Building Large-Scale Internet Services
+- [2016-12-08]: GoogleResearch: Spanner: Google's Globally-Distributed Database
+- [2016-08-10]: GoogleResearch: Dapper: a Large-Scale Distributed Systems Tracing Infrastructure
 - [2016-07-13]: GoogleResearch: The Rise of Cloud Computing Systems
 - [2016-07-13]: GoogleResearch: Why Google Store Billions of Lines of Code in a Single Repository
 - [2016-05-29]: GoogleResearch: Availability in Globally Distributed Storage Systems
