@@ -7,6 +7,7 @@ This repo contain following topics:
 
 * Log
 ** GoogleResearch
+- [2016-12-20]: GoogleResearch: Google Three Famous Papers: Google File System, Google Big Table, Google Map Reduce
 - [2016-12-08]: GoogleResearch: Jeff Dean: Building Large-Scale Internet Services
 - [2016-12-08]: GoogleResearch: Spanner: Google's Globally-Distributed Database
 - [2016-08-10]: GoogleResearch: Dapper: a Large-Scale Distributed Systems Tracing Infrastructure
