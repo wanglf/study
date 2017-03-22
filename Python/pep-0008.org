@@ -1,0 +1,187 @@
+* A Foolish Consistency is the Hobgoblin of Little Minds
+如下可以成为忽略此guideline的理由
+
+- 如果应用这些准则，将会使代码变得更难读，甚至在别人也遵守此PEP准则的前提下
+- To be consistent with surrounding code that also breaks it (maybe for historic reasons) -- although this is also an opportunity to clean up someone else's mess (in true XP style).
+- Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code.
+- 代码需要兼容历史代码库，甚至历史上的版本不支持此guide的一些feature
+
+* 代码布局
+** 缩进
+每个缩进层次采用*4个空格*
+
+正向示例
+#+BEGIN_SRC python
+# Aligned with opening delimiter.
+foo = long_function_name(var_one, var_two,
+                         var_three, var_four)
+
+# More indentation included to distinguish this from the rest.
+def long_function_name(
+        var_one, var_two, var_three,
+        var_four):
+    print(var_one)
+
+# Hanging indents should add a level.
+foo = long_function_name(
+    var_one, var_two,
+    var_three, var_four)
+#+END_SRC
+
+反向示例
+#+BEGIN_SRC python
+# Arguments on first line forbidden when not using vertical alignment.
+foo = long_function_name(var_one, var_two,
+    var_three, var_four)
+
+# Further indentation required as indentation is not distinguishable.
+def long_function_name(
+    var_one, var_two, var_three,
+    var_four):
+    print(var_one)
+#+END_SRC
+
+可选
+#+BEGIN_SRC python
+# Hanging indents *may* be indented to other than 4 spaces.
+foo = long_function_name(
+  var_one, var_two,
+  var_three, var_four)
+#+END_SRC
+
+可以接受的if语句格式
+#+BEGIN_SRC python
+# No extra indentation.
+if (this_is_one_thing and
+    that_is_another_thing):
+    do_something()
+
+# Add a comment, which will provide some distinction in editors
+# supporting syntax highlighting.
+if (this_is_one_thing and
+    that_is_another_thing):
+    # Since both conditions are true, we can frobnicate.
+    do_something()
+
+# Add some extra indentation on the conditional continuation line.
+if (this_is_one_thing
+        and that_is_another_thing):
+    do_something()
+#+END_SRC
+
+元组or列表
+方式一
+#+BEGIN_SRC python
+my_list = [
+    1, 2, 3,
+    4, 5, 6,
+    ]
+result = some_function_that_takes_arguments(
+    'a', 'b', 'c',
+    'd', 'e', 'f',
+    )
+#+END_SRC
+
+方式二
+#+BEGIN_SRC python
+my_list = [
+    1, 2, 3,
+    4, 5, 6,
+]
+result = some_function_that_takes_arguments(
+    'a', 'b', 'c',
+    'd', 'e', 'f',
+)
+#+END_SRC
+
+** tab还是space
+space是推荐的格式，不建议混合使用两者，python3干脆禁止混用
+
+** 一行长度
+Limit all lines to a maximum of 79 characters.
+
+For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to 72 characters.
+
+** 操作符在换行符前面还是后面
+不推荐(操作数离符号较远)
+#+BEGIN_SRC python
+# No: operators sit far away from their operands
+income = (gross_wages +
+          taxable_interest +
+          (dividends - qualified_dividends) -
+          ira_deduction -
+          student_loan_interest)
+#+END_SRC
+
+推荐
+#+BEGIN_SRC python
+# Yes: easy to match operators with operands
+income = (gross_wages
+          + taxable_interest
+          + (dividends - qualified_dividends)
+          - ira_deduction
+          - student_loan_interest)
+#+END_SRC
+
+** 空行
+Surround top-level function and class definitions with two blank lines.
+
+Method definitions inside a class are surrounded by a single blank line.
+
+Extra blank lines may be used (sparingly) to separate groups of related functions. Blank lines may be omitted between a bunch of related one-liners (e.g. a set of dummy implementations).
+
+Use blank lines in functions, sparingly, to indicate logical sections.
+
+Python accepts the control-L (i.e. ^L) form feed character as whitespace; Many tools treat these characters as page separators, so you may use them to separate pages of related sections of your file. Note, some editors and web-based code viewers may not recognize control-L as a form feed and will show another glyph in its place.
+
+** 文件编码
+Code in the core Python distribution should always use UTF-8 (or ASCII in Python 2).
+
+Files using ASCII (in Python 2) or UTF-8 (in Python 3) should not have an encoding declaration.
+
+** Imports
+一行只有一个import
+#+BEGIN_SRC python
+#Yes:
+import os
+import sys
+
+# No
+import sys, os
+
+# YES
+# It's okay to say this though:
+from subprocess import Popen, PIPE
+#+END_SRC
+
+Imports are always put at the top of the file, just after any module comments and docstrings, and before module globals and constants.
+
+Imports should be grouped in the following order:
+
+- standard library imports
+- related third party imports
+- local application/library specific imports
+
+You should put a blank line between each group of imports.
+
+明细原则，避免使用wildcard*来导入
+
+** Module level dunder names
+Module level "dunders" (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but before any import statements except from __future__ imports. Python mandates that future-imports must appear in the module before any other code except docstrings.
+
+示例:
+#+BEGIN_SRC python
+"""This is the example module.
+
+This module does stuff.
+"""
+
+from __future__ import barry_as_FLUFL
+
+__all__ = ['a', 'b', 'c']
+__version__ = '0.1'
+__author__ = 'Cardinal Biggles'
+
+import os
+import sys
+#+END_SRC

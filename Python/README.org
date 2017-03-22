@@ -1,0 +1,5 @@
+* 说明
+下面是我的一些Python学习笔记
+
+* Style Guide
+- [[pep-0008.org][PEP 8学习笔记]]
