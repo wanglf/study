@@ -185,3 +185,156 @@ __author__ = 'Cardinal Biggles'
 import os
 import sys
 #+END_SRC
+* 字符串引用
+In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this.
+
+For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 .
+
+* 空格
+#+BEGIN_SRC python
+# Yes
+spam(ham[1], {eggs: 2})
+# no
+spam( ham[ 1 ], { eggs: 2 } )
+
+# Yes
+foo = (0,)
+# no
+bar = (0, )
+
+# yes
+if x == 4: print x, y; x, y = y, x
+# No
+if x == 4 : print x , y ; x , y = y , x
+
+# yes
+ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+ham[lower + offset : upper + offset]
+# no
+ham[lower + offset:upper + offset]
+ham[1: 9], ham[1 :9], ham[1:9 :3]
+ham[lower : : upper]
+ham[ : upper]
+
+# yes
+spam(1)
+# no
+spam (1)
+
+# yes
+dct['key'] = lst[index]
+# no
+dct ['key'] = lst [index]
+
+# yes
+x = 1
+y = 2
+long_variable = 3
+# no
+x             = 1
+y             = 2
+long_variable = 3
+#+END_SRC
+
+** 其它建议
+- 尾部不留空格
+- 操作符两侧留空格:: Always surround these binary operators with a single space on either side: assignment ( = ), augmented assignment ( += , -= etc.), comparisons ( == , < , > , != , <> , <= , >= , in , not in , is , is not ), Booleans ( and , or , not ).
+- 若操作符有不同优先级, 最低优先级两侧增加空格:: If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.
+
+
+示例:
+#+BEGIN_SRC python
+# Yes
+i = i + 1
+submitted += 1
+x = x*2 - 1
+hypot2 = x*x + y*y
+c = (a+b) * (a-b)
+
+# No
+i=i+1
+submitted +=1
+x = x * 2 - 1
+hypot2 = x * x + y * y
+c = (a + b) * (a - b)
+
+# Yes
+def complex(real, imag=0.0):
+    return magic(r=real, i=imag)
+# No
+def complex(real, imag = 0.0):
+    return magic(r = real, i = imag)
+
+# Yes
+def munge(input: AnyStr): ...
+def munge() -> AnyStr: ...
+
+# No
+def munge(input:AnyStr): ...
+def munge()->PosInt: ...
+
+# yes
+def munge(sep: AnyStr = None): ...
+def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...
+
+# no
+def munge(input: AnyStr=None): ...
+def munge(input: AnyStr, limit = 1000): ...
+
+# yes
+if foo == 'blah':
+    do_blah_thing()
+do_one()
+do_two()
+do_three()
+
+# no
+if foo == 'blah': do_blah_thing()
+do_one(); do_two(); do_three()
+
+# rather not
+if foo == 'blah': do_blah_thing()
+for x in lst: total += x
+while t < 10: t = delay()
+
+# definitely not
+if foo == 'blah': do_blah_thing()
+else: do_non_blah_thing()
+
+try: something()
+finally: cleanup()
+
+do_one(); do_two(); do_three(long, argument,
+                             list, like, this)
+
+if foo == 'blah': one(); two(); three()
+#+END_SRC
+
+** Trailing commas
+#+BEGIN_SRC python
+# yes
+FILES = ('setup.cfg',)
+# okay, but confusing
+FILES = 'setup.cfg',
+
+# yes
+FILES = [
+    'setup.cfg',
+    'tox.ini',
+    ]
+initialize(FILES,
+           error=True,
+           )
+# no
+FILES = ['setup.cfg', 'tox.ini',]
+initialize(FILES, error=True,)
+#+END_SRC
+
+** Comments
+
+
+* 参考资料
+- [[https://www.python.org/dev/peps/pep-0008/][PEP 8 -- Style Guide for Python Code]]
