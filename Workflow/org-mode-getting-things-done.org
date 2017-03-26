@@ -14,10 +14,11 @@
 |------+---------------------+-----------------------------------------------------|
 |    1 | C-c C-w             | refile                                              |
 |    2 | C-c C-t             | 标记(todo, next, done)                              |
-|    2 | C-c C-c             | 光标所在行打上标记                                  |
-|    2 | C-c a               | 显示日历, a: 近一星期日历, m: 根据tag或属性进行搜索 |
-|    2 | C-c C-s             | schedule date                                       |
-|    2 | C-c C-d             | deadline date                                       |
+|    3 | C-c C-c             | 光标所在行打上标记                                  |
+|    4 | C-c a               | 显示日历, a: 近一星期日历, m: 根据tag或属性进行搜索 |
+|    5 | C-c C-s             | schedule date                                       |
+|    6 | C-c C-d             | deadline date                                       |
+|    7 | org-align-all-tags  | 对齐标签                                            |
 #+TBLFM: $1=@#-1
 
 * 其它技巧

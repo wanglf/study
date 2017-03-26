@@ -1,4 +1,4 @@
 ** Files
 
 - An Effective Git And Org-Mode Based Workflow For Reproducible Research
-- [[org-mode-get-things-done.org][Use Emacs org-mode to get things done]]
+- [[org-mode-getting-things-done.org][Use Emacs org-mode to implement getting things done]]
