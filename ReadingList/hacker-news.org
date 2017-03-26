@@ -1,0 +1,14 @@
+* Hacker News
+** 2017
+|-------+---------------------------------------------------------------------------------+------------|
+| Index | Title                                                                           |  Read date |
+|-------+---------------------------------------------------------------------------------+------------|
+|     7 | [[https://news.ycombinator.com/itemid%3D13918888][How I Became a Better Programmer]]                                                | 2017-03-26 |
+|     6 | [[https://news.ycombinator.com/item?id%3D13944769][How We Implement Disaster Recovery and High Availability with Postgres at Citus]] | 2017-03-25 |
+|     5 | [[https://news.ycombinator.com/item?id%3D13774929][Why we are not leaving the cloud]]                                                | 2017-03-07 |
+|     4 | [[https://news.ycombinator.com/item?id%3D13153031][Proposed server purchase for GitLab.com]]                                         | 2017-03-07 |
+|     3 | [[https://news.ycombinator.com/item?id%3D13777077][The Collapse of the Unix Philosophy]]                                             | 2017-02-20 |
+|     2 | [[https://news.ycombinator.com/item?id%3D12828565][Giteveryday – A useful minimum set of commands for Everyday Git]]                 | 2017-02-01 |
+|     1 | [[https://news.ycombinator.com/item?id%3D13087904][Htop explained]]                                                                  | 2017-01-02 |
+|-------+---------------------------------------------------------------------------------+------------|
+#+TBLFM: $1='(- (length org-table-dlines) @#)

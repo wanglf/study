@@ -30,13 +30,8 @@ This repo contain following topics:
 - [2017-03-22]: Python: PEP 8 -- Style Guide for Python Code
 
 ** ReadingList
-- [2016-12-04]: ReadingList: 局外人
-- [2016-12-04]: ReadingList: 把时间当作朋友
-- [2016-12-04]: ReadingList: Java虚拟机规范(Java SE 8版)
-- [2016-10-23]: ReadingList: Site Reliability Engineering
-- [2016-10-23]: ReadingList: 三十六大
-- [2016-10-23]: ReadingList: 阿城文集之一: 棋王、树王、孩子王
-- [2016-08-11]: ReadingList: new and add README.org
+- [[ReadingList/books.org][Books]]
+- [[ReadingList/hacker-news.org][Hacker News]]
 
 ** Workflow
 - [2017-03-26]: Workflow: Use Emacs org-mode to get things done
