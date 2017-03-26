@@ -1,0 +1,28 @@
+#+TITLE: 使用Org-mode进行GTD时间管理
+
+* 我的方法
+- 使用两个文件，一个为task.org, 另一个为finished.org
+- 只使用两级标题，第一级为Home/Office/ThirdPlace
+- 第二级标题必须是具体的事情，强调doable
+- 每个任务打上TAG，方便检索与分类
+- 每个任务可能通过checkbox或者content body展开
+- 对于完成的事情标记为DONE，refile归档至finished.org
+
+* 常用快捷键
+|------+---------------------+-----------------------------------------------------|
+| 序号 | 按键组合或emacs命令 | 作用                                                |
+|------+---------------------+-----------------------------------------------------|
+|    1 | C-c C-w             | refile                                              |
+|    2 | C-c C-t             | 标记(todo, next, done)                              |
+|    2 | C-c C-c             | 光标所在行打上标记                                  |
+|    2 | C-c a               | 显示日历, a: 近一星期日历, m: 根据tag或属性进行搜索 |
+|    2 | C-c C-s             | schedule date                                       |
+|    2 | C-c C-d             | deadline date                                       |
+#+TBLFM: $1=@#-1
+
+* 其它技巧
+- 可以使用带checkbox功能的list来计算完成率，格式为- [ ], 注意中括号内包含一空格
+
+* 参考链接
+- [[http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html][How I use Emacs and Org-mode to implement GTD]]
+- [[http://newartisans.com/2007/08/using-org-mode-as-a-day-planner/][Using org-mode as a Day Planner]]
