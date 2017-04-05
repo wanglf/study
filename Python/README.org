@@ -5,4 +5,5 @@
 - [[pep-0008.org][PEP 8学习笔记]]
 
 * Tutorial
-- [[flask-mega-tutorial.org][flask mega tutorial]]
+** The Flask Mega-Tutorial
+- [[flask-mega-tutorial-01.org][flask mega tutorial Part I]]
