@@ -1,0 +1,71 @@
+* Hello World
+** virtual env
+#+BEGIN_SRC sh
+mkdir -p ~/git/microblog
+cd ~/git/microblog
+pip install virtualenv
+virtualenv flask
+source flask/bin/activate
+pip install flask
+pip install flask-login
+pip install flask-openid
+pip install flask-mail
+pip install flask-sqlalchemy
+pip install sqlalchemy-migrate
+pip install flask-whooshalchemy
+pip install flask-wtf
+pip install flask-babel
+pip install guess_language
+pip install flipflop
+pip install coverage
+
+pip freeze > requirements.txt
+# pip install -r requirements.txt
+#+END_SRC
+
+** first project
+#+BEGIN_SRC sh
+cd ~/git/microblog
+mkdir app
+mkdir app/static
+mkdir app/templates
+mkdir tmp
+#+END_SRC
+
+- app/__init__.py
+#+BEGIN_SRC python
+from flask import Flask
+
+app = Flask(__name__)
+from app import views
+#+END_SRC
+
+- app/views.py
+#+BEGIN_SRC python
+from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+return "Hello, World!"
+#+END_SRC
+
+- run.py
+#+BEGIN_SRC python
+#!flask/bin/python
+from app import app
+app.run(debug = True)
+#+END_SRC
+
+** 运行
+#+BEGIN_SRC sh
+python run.py
+#+END_SRC
+
+** 访问
+- [[http://localhost:5000]]
+- [[http://localhost:5000/index]]
+
+* Reference
+- [[http://www.pythondoc.com/flask-mega-tutorial/index.html][The Flask Mega-Tutorial (Chinese)]]
+- [[https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world][The Flask Mega-Tutorial (English)]]

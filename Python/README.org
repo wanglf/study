@@ -3,3 +3,6 @@
 
 * Style Guide
 - [[pep-0008.org][PEP 8学习笔记]]
+
+* Tutorial
+- [[flask-mega-tutorial.org][flask mega tutorial]]
