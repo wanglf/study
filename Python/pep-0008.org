@@ -239,7 +239,7 @@ y             = 2
 long_variable = 3
 #+END_SRC
 
-** 其它建议
+* 其它建议
 - 尾部不留空格
 - 操作符两侧留空格:: Always surround these binary operators with a single space on either side: assignment ( = ), augmented assignment ( += , -= etc.), comparisons ( == , < , > , != , <> , <= , >= , in , not in , is , is not ), Booleans ( and , or , not ).
 - 若操作符有不同优先级, 最低优先级两侧增加空格:: If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.
@@ -313,7 +313,7 @@ do_one(); do_two(); do_three(long, argument,
 if foo == 'blah': one(); two(); three()
 #+END_SRC
 
-** Trailing commas
+* 尾部逗号
 #+BEGIN_SRC python
 # yes
 FILES = ('setup.cfg',)
@@ -333,8 +333,127 @@ FILES = ['setup.cfg', 'tox.ini',]
 initialize(FILES, error=True,)
 #+END_SRC
 
-** Comments
+* 注释
+** block comments
+Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that code. Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).
 
+Paragraphs inside a block comment are separated by a line containing a single # .
 
+** inline comments
+Use inline comments sparingly.
+
+An inline comment is a comment on the same line as a statement. Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.
+
+** Documentation Strings
+Conventions for writing good documentation strings (a.k.a. "docstrings") are immortalized in PEP 257 .
+
+Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the def line.
+
+PEP 257 describes good docstring conventions. Note that most importantly, the """ that ends a multiline docstring should be on a line by itself, e.g.:
+
+"""Return a foobang
+
+Optional plotz says to frobnicate the bizbaz first.
+"""
+For one liner docstrings, please keep the closing """ on the same line.
+
+#+BEGIN_SRC python
+def complex(real=0.0, imag=0.0):
+    """Form a complex number.
+
+    Keyword arguments:
+    real -- the real part (default 0.0)
+    imag -- the imaginary part (default 0.0)
+    """
+    if imag == 0.0 and real == 0.0:
+        return complex_zero
+    ...
+#+END_SRC
+* 命名规范
+The naming conventions of Python's library are a bit of a mess, so we'll never get this completely consistent -- nevertheless, here are the currently recommended naming standards. New modules and packages (including third party frameworks) should be written to these standards, but where an existing library has a different style, internal consistency is preferred.
+
+** Overriding Principle
+Names that are visible to the user as public parts of the API should follow conventions that reflect usage rather than implementation.
+
+** Names to Avoid
+Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names.
+
+In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use 'l', use 'L' instead.
+
+** Package and Module Names
+Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.
+
+When an extension module written in C or C++ has an accompanying Python module that provides a higher level (e.g. more object oriented) interface, the C/C++ module has a leading underscore (e.g. _socket ).
+
+** Class Names
+Class names should normally use the CapWords convention.
+
+The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.
+
+Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.
+
+** Exception Names
+Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix "Error" on your exception names (if the exception actually is an error).
+
+** Global Variable Names
+(Let's hope that these variables are meant for use inside one module only.) The conventions are about the same as those for functions.
+
+Modules that are designed for use via from M import * should use the __all__ mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are "module non-public").
+
+** Function Names
+Function names should be lowercase, with words separated by underscores as necessary to improve readability.
+
+mixedCase is allowed only in contexts where that's already the prevailing style (e.g. threading.py), to retain backwards compatibility.
+
+** Function and method arguments
+Always use self for the first argument to instance methods.
+
+Always use cls for the first argument to class methods.
+
+If a function argument's name clashes with a reserved keyword, it is generally better to append a single trailing underscore rather than use an abbreviation or spelling corruption. Thus class_ is better than clss . (Perhaps better is to avoid such clashes by using a synonym.)
+
+** Method Names and Instance Variables
+Use the function naming rules: lowercase with words separated by underscores as necessary to improve readability.
+
+Use one leading underscore only for non-public methods and instance variables.
+
+To avoid name clashes with subclasses, use two leading underscores to invoke Python's name mangling rules.
+
+Python mangles these names with the class name: if class Foo has an attribute named __a , it cannot be accessed by Foo.__a . (An insistent user could still gain access by calling Foo._Foo__a .) Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed.
+
+Note: there is some controversy about the use of __names (see below).
+
+** Constants
+Constants are usually defined on a module level and written in all capital letters with underscores separating words. Examples include MAX_OVERFLOW and TOTAL .
+
+* 编程建议
+- Code should be written in a way that does not disadvantage other implementations of Python (PyPy, Jython, IronPython, Cython, Psyco, and such).
+
+- Comparisons to singletons like None should always be done with is or is not , never the equality operators.
+
+- Use is not operator rather than not ... is . While both expressions are functionally identical, the former is more readable and preferred. ::
+
+#+BEGIN_SRC python
+# Yes
+if foo is not None:
+
+# No
+if not foo is None:
+#+END_SRC
+
+- When implementing ordering operations with rich comparisons, it is best to implement all six operations ( __eq__ , __ne__ , __lt__ , __le__ , __gt__ , __ge__ ) rather than relying on other code to only exercise a particular comparison.
+
+- Always use a def statement instead of an assignment statement that binds a lambda expression directly to an identifier. ::
+
+#+BEGIN_SRC python
+# Yes:
+def f(x): return 2*x
+
+# No:
+f = lambda x: 2*x
+"""
+The first form means that the name of the resulting function object is specifically 'f' instead of the generic '<lambda>'. This is more useful for tracebacks and string representations in general. The use of the assignment statement eliminates the sole benefit a lambda expression can offer over an explicit def statement (i.e. that it can be embedded inside a larger expression)
+"""
+#+END_SRC
 * 参考资料
 - [[https://www.python.org/dev/peps/pep-0008/][PEP 8 -- Style Guide for Python Code]]
