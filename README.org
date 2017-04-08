@@ -27,6 +27,7 @@ This repo contain following topics:
 - [2016-05-18]: GoogleResearch: Jupiter Rising: A Decade of Clos Topologies and Centralized Control in Google’s Datacenter Network
 
 ** [[https://github.com/wanglf/study/tree/master/Python][Python]]
+- [2017-04-08]: Python: Python virtualenv basic usage
 - [2017-04-05]: Python: The Flask Mega-Tutorial Learning Notes
 - [2017-03-22]: Python: PEP 8 -- Style Guide for Python Code
 

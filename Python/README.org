@@ -4,6 +4,9 @@
 * Style Guide
 - [[pep-0008.org][PEP 8学习笔记]]
 
+* Tools
+- [[python-virtualenv.org][Python Virtualenv]]
+
 * Tutorial
 ** The Flask Mega-Tutorial
 - [[flask-mega-tutorial-01.org][flask mega tutorial Part I]]

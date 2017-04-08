@@ -1,0 +1,19 @@
+* 安装
+#+BEGIN_SRC sh
+pip install virtualenv
+#+END_SRC
+
+* 基本使用
+#+BEGIN_SRC sh
+cd my_project_folder
+virtualenv venv
+source venv/bin/activate
+pip install requests
+deactivate
+#+END_SRC
+
+* requirements
+#+BEGIN_SRC sh
+pip freeze > requirements.txt
+pip install -r requirements.txt
+#+END_SRC
