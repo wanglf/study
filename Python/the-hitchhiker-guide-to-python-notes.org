@@ -1,0 +1,177 @@
+* Structuring Your Project
+** Modules
+#+BEGIN_SRC python
+# very bad
+[...]
+from modu import *
+[...]
+x = sqrt(4)  # Is sqrt part of modu? A builtin? Defined above?
+
+# better
+from modu import sqrt
+[...]
+x = sqrt(4)  # sqrt may be part of modu, if not redefined in between
+
+# best
+import modu
+[...]
+x = modu.sqrt(4)  # sqrt is visibly part of modu's namespace
+#+END_SRC
+
+** Package
+Any directory with an __init__.py file is considered a Python package. The different modules in the package are imported in a similar manner as plain modules, but with a special behavior for the __init__.py file, which is used to gather all package-wide definitions.
+
+Lastly, a convenient syntax is available for importing deeply nested packages: import very.deep.module as mod. This allows you to use mod in place of the verbose repetition of very.deep.module.
+
+** OOP
+Python is sometimes described as an object-oriented programming language. This can be somewhat misleading and needs to be clarified.
+
+In Python, everything is an object, and can be handled as such. This is what is meant when we say, for example, that functions are first-class objects. Functions, classes, strings, and even types are objects in Python: like any object, they have a type, they can be passed as function arguments, and they may have methods and properties. In this understanding, Python is an object-oriented language.
+
+However, unlike Java, Python does not impose object-oriented programming as the main programming paradigm. It is perfectly viable for a Python project to not be object-oriented, i.e. to use no or very few class definitions, class inheritance, or any other mechanisms that are specific to object-oriented programming.
+
+Another way to say the same thing is to suggest using functions and procedures with as few implicit contexts and side-effects as possible. A function’s implicit context is made up of any of the global variables or items in the persistence layer that are accessed from within the function. Side-effects are the changes that a function makes to its implicit context. If a function saves or deletes data in a global variable or in the persistence layer, it is said to have a side-effect.
+
+Carefully isolating functions with context and side-effects from functions with logic (called pure functions) allow the following benefits:
+
+Pure functions are deterministic: given a fixed input, the output will always be the same.
+Pure functions are much easier to change or replace if they need to be refactored or optimized.
+Pure functions are easier to test with unit-tests: There is less need for complex context setup and data cleaning afterwards.
+Pure functions are easier to manipulate, decorate, and pass around.
+In summary, pure functions are more efficient building blocks than classes and objects for some architectures because they have no context or side-effects.
+
+Obviously, object-orientation is useful and even necessary in many cases, for example when developing graphical desktop applications or games, where the things that are manipulated (windows, buttons, avatars, vehicles) have a relatively long life of their own in the computer’s memory.
+
+** Decoration
+#+BEGIN_SRC python
+def foo():
+    # do something
+
+def decorator(func):
+    # manipulate func
+    return func
+
+foo = decorator(foo)  # Manually decorate
+
+@decorator
+def bar():
+    # Do something
+# bar() is decorated
+#+END_SRC
+
+** Context Managers
+*** Example
+A context manager is a Python object that provides extra contextual information to an action. This extra information takes the form of running a callable upon initiating the context using the with statement, as well as running a callable upon completing all the code inside the with block. The most well known example of using a context manager is shown here, opening on a file:
+#+BEGIN_SRC python
+with open('file.txt') as f:
+    contents = f.read()
+#+END_SRC
+
+There are two easy ways to implement this functionality yourself: using a class or using a generator. Let’s implement the above functionality ourselves, starting with the class approach:
+
+*** Class method
+#+BEGIN_SRC python
+class CustomOpen(object):
+    def __init__(self, filename):
+        self.file = open(filename)
+
+    def __enter__(self):
+        return self.file
+
+    def __exit__(self, ctx_type, ctx_value, ctx_traceback):
+        self.file.close()
+
+with CustomOpen('file') as f:
+    contents = f.read()
+#+END_SRC
+
+** Generator method
+#+BEGIN_SRC python
+from contextlib import contextmanager
+
+@contextmanager
+def custom_open(filename):
+    f = open(filename)
+    try:
+        yield f
+    finally:
+        f.close()
+
+with custom_open('file') as f:
+    contents = f.read()
+#+END_SRC
+
+** Dynamic type
+- Avoid using the same variable name for different things.
+
+#+BEGIN_SRC python
+# bad
+a = 1
+a = 'a string'
+def a():
+    pass  # Do something
+
+# good
+count = 1
+msg = 'a string'
+def func():
+    pass  # Do something
+#+END_SRC
+
+- It is better to use different names even for things that are related, when they have a different type
+#+BEGIN_SRC python
+# bad
+items = 'a b c d'  # This is a string...
+items = items.split(' ')  # ...becoming a list
+items = set(items)  # ...and then a set
+#+END_SRC
+
+Some coding practices, like functional programming, recommend never reassigning a variable. In Java this is done with the final keyword. Python does not have a final keyword and it would be against its philosophy anyway. However, it may be a good discipline to avoid assigning to a variable more than once, and it helps in grasping the concept of mutable and immutable types.
+
+** Mutable and Immutable types
+Python has two kinds of built-in or user-defined types.
+
+Mutable types are those that allow in-place modification of the content. Typical mutables are lists and dictionaries: All lists have mutating methods, like list.append() or list.pop(), and can be modified in place. The same goes for dictionaries.
+
+#+BEGIN_SRC python
+my_list = [1, 2, 3]
+my_list[0] = 4
+print my_list  # [4, 2, 3] <- The same list as changed
+
+x = 6
+x = x + 1  # The new x is another object
+#+END_SRC
+
+*** String join
+#+BEGIN_SRC python
+# bad
+nums = ""
+for n in range(20):
+  nums += str(n)   # slow and inefficient
+print nums
+Good
+
+# good
+nums = []
+for n in range(20):
+  nums.append(str(n))
+print "".join(nums)  # much more efficient
+
+# better
+nums = [str(n) for n in range(20)]
+print "".join(nums)
+
+# best
+nums = map(str, range(20))
+print "".join(nums)
+#+END_SRC
+
+*** String format
+#+BEGIN_SRC python
+foo = 'foo'
+bar = 'bar'
+
+foobar = '%s%s' % (foo, bar) # It is OK
+foobar = '{0}{1}'.format(foo, bar) # It is better
+foobar = '{foo}{bar}'.format(foo=foo, bar=bar) # It is best
+#+END_SRC
