@@ -3,7 +3,7 @@
 
 * Style Guide
 - [[pep-0008.org][PEP 8学习笔记]]
-- [[the-hitchhiker-guide-to-python-notes][The Hitchhiker's Guide to Python Notes]]
+- [[the-hitchhiker-guide-to-python-notes.org][The Hitchhiker's Guide to Python Notes]]
 
 * Tools
 - [[python-virtualenv.org][Python Virtualenv]]
