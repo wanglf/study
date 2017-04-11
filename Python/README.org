@@ -7,7 +7,7 @@
 
 * Tools
 - [[python-virtualenv.org][Python Virtualenv]]
-
+  
 * Tutorial
 - [[http://python-guide-pt-br.readthedocs.io/en/latest/][The Hitchhiker’s Guide to Python]]
 - [[flask-mega-tutorial.org][flask mega tutorial]]

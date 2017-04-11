@@ -175,3 +175,45 @@ foobar = '%s%s' % (foo, bar) # It is OK
 foobar = '{0}{1}'.format(foo, bar) # It is better
 foobar = '{foo}{bar}'.format(foo=foo, bar=bar) # It is best
 #+END_SRC
+* Code Style
+** Explicit code
+#+BEGIN_SRC python
+# bad
+def make_complex(*args):
+    x, y = args
+    return dict(**locals())
+
+# good
+def make_complex(x, y):
+    return {'x': x, 'y': y}
+#+END_SRC
+
+In the good code above, x and y are explicitly received from the caller, and an explicit dictionary is returned. The developer using this function knows exactly what to do by reading the first and last lines, which is not the case with the bad example. 
+
+** One statement per line
+While some compound statements such as list comprehensions are allowed and appreciated for their brevity and their expressiveness, it is bad practice to have two disjointed statements on the same line of code.
+
+#+BEGIN_SRC python
+# bad
+
+print 'one'; print 'two'
+
+if x == 1: print 'one'
+
+if <complex comparison> and <other complex comparison>:
+    # do something
+
+# good
+
+print 'one'
+print 'two'
+
+if x == 1:
+    print 'one'
+
+cond1 = <complex comparison>
+cond2 = <other complex comparison>
+if cond1 and cond2:
+    # do something
+#+END_SRC
+
