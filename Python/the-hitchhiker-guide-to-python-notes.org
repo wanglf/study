@@ -188,7 +188,7 @@ def make_complex(x, y):
     return {'x': x, 'y': y}
 #+END_SRC
 
-In the good code above, x and y are explicitly received from the caller, and an explicit dictionary is returned. The developer using this function knows exactly what to do by reading the first and last lines, which is not the case with the bad example. 
+In the good code above, x and y are explicitly received from the caller, and an explicit dictionary is returned. The developer using this function knows exactly what to do by reading the first and last lines, which is not the case with the bad example.
 
 ** One statement per line
 While some compound statements such as list comprehensions are allowed and appreciated for their brevity and their expressiveness, it is bad practice to have two disjointed statements on the same line of code.
@@ -217,3 +217,301 @@ if cond1 and cond2:
     # do something
 #+END_SRC
 
+** Function Arguments
+1. Positional arguments are mandatory and have no default values.
+2. Keyword arguments are not mandatory and have default values.
+3. The arbitrary argument list is the third way to pass arguments to a function.
+4. The arbitrary keyword argument dictionary is the last way to pass arguments to functions.
+
+#+BEGIN_SRC python
+send(message, recipient)
+send(message, to, cc=None, bcc=None)
+send(message, *args)
+send(message, **kwargs)
+#+END_SRC
+
+It is up to the programmer writing the function to determine which arguments are positional arguments and which are optional keyword arguments, and to decide whether to use the advanced techniques of arbitrary argument passing. If the advice above is followed wisely, it is possible and enjoyable to write Python functions that are:
+
+- easy to read (the name and arguments need no explanations)
+- easy to change (adding a new keyword argument does not break other parts of the code)
+
+** Avoid the magical wand
+A powerful tool for hackers, Python comes with a very rich set of hooks and tools allowing you to do almost any kind of tricky tricks. For instance, it is possible to do each of the following:
+
+- change how objects are created and instantiated
+- change how the Python interpreter imports modules
+- it is even possible (and recommended if needed) to embed C routines in Python.
+
+However, all these options have many drawbacks and it is always better to use the most straightforward way to achieve your goal. The main drawback is that readability suffers greatly when using these constructs. Many code analysis tools, such as pylint or pyflakes, will be unable to parse this “magic” code.
+
+We consider that a Python developer should know about these nearly infinite possibilities, because it instills confidence that no impassable problem will be on the way. However, knowing how and particularly when not to use them is very important.
+
+Like a kung fu master, a Pythonista knows how to kill with a single finger, and never to actually do it.
+
+** We are all responsible users
+As seen above, Python allows many tricks, and some of them are potentially dangerous. A good example is that any client code can override an object’s properties and methods: there is no “private” keyword in Python. This philosophy, very different from highly defensive languages like Java, which give a lot of mechanisms to prevent any misuse, is expressed by the saying: “We are all responsible users”.
+
+This doesn’t mean that, for example, no properties are considered private, and that no proper encapsulation is possible in Python. Rather, instead of relying on concrete walls erected by the developers between their code and other’s, the Python community prefers to rely on a set of conventions indicating that these elements should not be accessed directly.
+
+The main convention for private properties and implementation details is to prefix all “internals” with an underscore. If the client code breaks this rule and accesses these marked elements, any misbehavior or problems encountered if the code is modified is the responsibility of the client code.
+
+** Returning values
+If you do not wish to raise exceptions for the second case, then returning a value, such as None or False, indicating that the function could not perform correctly might be needed. In this case, it is better to return as early as the incorrect context has been detected. It will help to flatten the structure of the function: all the code after the return-because-of-error statement can assume the condition is met to further compute the function’s main result. Having multiple such return statements is often necessary.
+
+#+BEGIN_SRC python
+def complex_function(a, b, c):
+    if not a:
+        return None  # Raising an exception might be better
+    if not b:
+        return None  # Raising an exception might be better
+    # Some complex code trying to compute x from a, b and c
+    # Resist temptation to return x if succeeded
+    if not x:
+        # Some Plan-B computation of x
+    return x  # One single exit point for the returned value x will help
+              # when maintaining the code.
+#+END_SRC
+
+** Idoms
+Idiomatic Python code is often referred to as being Pythonic.
+
+Although there usually is one — and preferably only one — obvious way to do it; the way to write idiomatic Python code can be non-obvious to Python beginners. So, good idioms must be consciously acquired.
+
+Some common Python idioms follow:
+
+*** Unpack
+#+BEGIN_SRC python
+for index, item in enumerate(some_list):
+    # do something with index and item
+
+a, b = b, a
+
+a, (b, c) = 1, (2, 3)
+
+a, *rest = [1, 2, 3]
+# a = 1, rest = [2, 3]
+a, *middle, c = [1, 2, 3, 4]
+# a = 1, middle = [2, 3], c = 4
+#+END_SRC
+
+*** Create an ignored value
+#+BEGIN_SRC python
+filename = 'foobar.txt'
+basename, __, ext = filename.rpartition('.')
+#+END_SRC
+
+*** Create a length-N list of the same thing
+#+BEGIN_SRC python
+four_nones = [None] * 4
+#+END_SRC
+
+*** Create a length-N list of lists
+#+BEGIN_SRC python
+four_lists = [[] for __ in xrange(4)]
+#+END_SRC
+
+*** Create a string from a list
+#+BEGIN_SRC python
+letters = ['s', 'p', 'a', 'm']
+word = ''.join(letters)
+#+END_SRC
+
+*** Searching for an item in a collection
+#+BEGIN_SRC python
+s = set(['s', 'p', 'a', 'm'])
+l = ['s', 'p', 'a', 'm']
+
+def lookup_set(s):
+    return 's' in s
+
+def lookup_list(l):
+    return 's' in l
+#+END_SRC
+
+** Zen of python
+#+BEGIN_EXAMPLE
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+#+END_EXAMPLE
+
+** PEP8
+PEP 8 is the de-facto code style guide for Python. A high quality, easy-to-read version of PEP 8 is also available at pep8.org.
+
+This is highly recommended reading. The entire Python community does their best to adhere to the guidelines laid out within this document. Some project may sway from it from time to time, while others may amend its recommendations.
+
+#+BEGIN_EXAMPLE
+$ pip install pep8
+$ pep8 optparse.py
+optparse.py:69:11: E401 multiple imports on one line
+optparse.py:77:1: E302 expected 2 blank lines, found 1
+optparse.py:88:5: E301 expected 1 blank line, found 0
+optparse.py:222:34: W602 deprecated form of raising exception
+optparse.py:347:31: E211 whitespace before '('
+optparse.py:357:17: E201 whitespace after '{'
+optparse.py:472:29: E221 multiple spaces before operator
+optparse.py:544:21: W601 .has_key() is deprecated, use 'in'
+
+$ pip install autopep8
+$ autopep8 --in-place optparse.py
+#+END_EXAMPLE
+
+** Conventions
+*** Check if variable equals a constant
+#+BEGIN_SRC python
+# bad:
+
+if attr == True:
+    print 'True!'
+
+if attr == None:
+    print 'attr is None!'
+
+# good:
+
+# Just check the value
+if attr:
+    print 'attr is truthy!'
+
+# or check for the opposite
+if not attr:
+    print 'attr is falsey!'
+
+# or, since None is considered false, explicitly check for it
+if attr is None:
+    print 'attr is None!'
+#+END_SRC
+
+*** Access a Dictionary Element
+Don’t use the dict.has_key() method. Instead, use x in d syntax, or pass a default argument to dict.get().
+
+#+BEGIN_SRC python
+# bad:
+
+d = {'hello': 'world'}
+if d.has_key('hello'):
+    print d['hello']    # prints 'world'
+else:
+    print 'default_value'
+
+# good:
+
+d = {'hello': 'world'}
+
+print d.get('hello', 'default_value') # prints 'world'
+print d.get('thingy', 'default_value') # prints 'default_value'
+
+# Or:
+if 'hello' in d:
+    print d['hello']
+#+END_SRC
+
+*** Short Ways to Manipulate Lists
+List comprehensions provide a powerful, concise way to work with lists. Also, the map() and filter() functions can perform operations on lists using a different, more concise syntax.
+
+#+BEGIN_SRC python
+# bad:
+
+# Filter elements greater than 4
+a = [3, 4, 5]
+b = []
+for i in a:
+    if i > 4:
+        b.append(i)
+# good:
+
+a = [3, 4, 5]
+b = [i for i in a if i > 4]
+# Or:
+b = filter(lambda x: x > 4, a)
+
+# bad:
+
+# Add three to all list members.
+a = [3, 4, 5]
+for i in range(len(a)):
+    a[i] += 3
+
+# good:
+
+a = [3, 4, 5]
+a = [i + 3 for i in a]
+# Or:
+a = map(lambda i: i + 3, a)
+
+# Use enumerate() keep a count of your place in the list.
+
+a = [3, 4, 5]
+for i, item in enumerate(a):
+    print i, item
+# prints
+# 0 3
+# 1 4
+# 2 5
+#+END_SRC
+
+*** Read From a File
+Use the *with open* syntax to read from files. This will automatically close files for you.
+#+BEGIN_SRC python
+# bad:
+
+f = open('file.txt')
+a = f.read()
+print a
+f.close()
+
+# good:
+
+with open('file.txt') as f:
+    for line in f:
+        print line
+#+END_SRC
+
+The with statement is better because it will ensure you always close the file, even if an exception is raised inside the with block.
+
+*** Line Continuations
+When a logical line of code is longer than the accepted limit, you need to split it over multiple physical lines. The Python interpreter will join consecutive lines if the last character of the line is a backslash. This is helpful in some cases, but should usually be avoided because of its fragility: a white space added to the end of the line, after the backslash, will break the code and may have unexpected results.
+
+A better solution is to use parentheses around your elements. Left with an unclosed parenthesis on an end-of-line the Python interpreter will join the next line until the parentheses are closed. The same behavior holds for curly and square braces.
+
+
+#+BEGIN_SRC python
+# bad:
+
+my_very_big_string = """For a long time I used to go to bed early. Sometimes, \
+    when I had put out my candle, my eyes would close so quickly that I had not even \
+    time to say “I’m going to sleep.”"""
+
+from some.deep.module.inside.a.module import a_nice_function, another_nice_function, \
+    yet_another_nice_function
+
+# good:
+
+my_very_big_string = (
+    "For a long time I used to go to bed early. Sometimes, "
+    "when I had put out my candle, my eyes would close so quickly "
+    "that I had not even time to say “I’m going to sleep.”"
+)
+
+from some.deep.module.inside.a.module import (
+    a_nice_function, another_nice_function, yet_another_nice_function)
+
+#+END_SRC
