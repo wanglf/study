@@ -217,3 +217,94 @@ if cond1 and cond2:
     # do something
 #+END_SRC
 
+* Logging
+The logging module has been a part of Python’s Standard Library since version 2.3. It is succinctly described in PEP 282. 
+
+Logging serves two purposes:
+
+- Diagnostic logging :: records events related to the application’s operation. If a user calls in to report an error, for example, the logs can be searched for context.
+- Audit logging :: records events for business analysis. A user’s transactions can be extracted and combined with other user details for reports or to optimize a business goal.
+
+** Configuration via an INI File
+*** Logging.config.ini
+#+BEGIN_EXAMPLE
+[loggers]
+keys=root
+
+[handlers]
+keys=stream_handler
+
+[formatters]
+keys=formatter
+
+[logger_root]
+level=DEBUG
+handlers=stream_handler
+
+[handler_stream_handler]
+class=StreamHandler
+level=DEBUG
+formatter=formatter
+args=(sys.stderr,)
+
+[formatter_formatter]
+format=%(asctime)s %(name)-12s %(levelname)-8s %(message)s
+#+END_EXAMPLE
+
+*** Python code
+#+BEGIN_SRC python
+import logging
+from logging.config import fileConfig
+
+fileConfig('logging_config.ini')
+logger = logging.getLogger()
+logger.debug('often makes a very good meal of %s', 'visiting tourists')
+#+END_SRC
+
+** Configuration Via a Dictionary
+#+BEGIN_SRC python
+import logging
+from logging.config import dictConfig
+
+logging_config = dict(
+    version = 1,
+    formatters = {
+        'f': {'format':
+              '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'}
+        },
+    handlers = {
+        'h': {'class': 'logging.StreamHandler',
+              'formatter': 'f',
+              'level': logging.DEBUG}
+        },
+    root = {
+        'handlers': ['h'],
+        'level': logging.DEBUG,
+        },
+)
+
+dictConfig(logging_config)
+
+logger = logging.getLogger()
+logger.debug('often makes a very good meal of %s', 'visiting tourists')
+#+END_SRC
+
+** Configuration Directly in Code¶
+#+BEGIN_SRC python
+import logging
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+        '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+
+logger.debug('often makes a very good meal of %s', 'visiting tourists')
+#+END_SRC
+
+#+RESULTS:
+: None
+
+
